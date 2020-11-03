@@ -7,5 +7,5 @@ Run `npm run server`
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-[![ScreenShot](http://prntscr.com/vcjad6)]
-[![ScreenShot](http://prntscr.com/vcjaoy)]
+[![ScreenShot](https://imgur.com/pGS5s5Q)]
+[![ScreenShot](https://imgur.com/LqWSof3)]
