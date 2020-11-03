@@ -1,0 +1,29 @@
+<nabvar-component [isConfirm]="reservationR!=null" (change)="cambiar($event)"></nabvar-component>
+<br />
+<div class="container" *ngIf="cargo">
+  <div class="row" style="padding-top: 10%;">
+    <div class="col-7">
+      <div class="card">
+        <div class="card-body">
+          <info-component [reservation]="reservation" [listin]="listin" [isConfirm]="reservationR!=null"
+            (continuar)="continue()"></info-component>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-5">
+      <div class="card">
+        <div class="card-body">
+          <reservation-component [reservation]="reservation" [listin]="listin" [isConfirm]="reservationR!=null">
+          </reservation-component>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="col-12" *ngIf="message!=''">
+        <div class="alert alert-success" role="alert">
+          {{message}}
+        </div>
+    </div>
+  </div>

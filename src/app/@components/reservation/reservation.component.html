@@ -1,0 +1,182 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-8">
+      <h4> {{listin.name}}</h4>
+
+      <h6> {{listin.slug}}</h6>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+    </div>
+
+    <div class="col-4">
+      <img class="card-img-top" [src]="listin.image_url" alt="Card image cap">
+    </div>
+
+  </div>
+  <hr />
+
+
+
+  <div class="card" *ngIf="!isConfirm">
+
+    <div class="row ic">
+      <div class="col">
+        <h6 style="margin: 5px;">Checkin </h6>
+      </div>
+
+      <div class="col">
+        <i class="fa fa-long-arrow-right fa-3x" aria-hidden="true" style="margin: 5px;"></i>
+        <!-- <i class="fa fa-arrow-right" style="margin: 5px;" aria-hidden="true"></i> -->
+      </div>
+
+      <div class="col">
+        <h6 style="margin: 5px;"> Checkout</h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="isConfirm">
+    <div class="col-4">
+      <h6 style="margin: 5px;">{{reservation.checkin | date:'MMMM d'}}</h6>
+    </div>
+
+    <div class="col-2">
+      <i class="fa fa-long-arrow-right fa-3x" aria-hidden="true" style="margin: 5px;"></i>
+      <!-- <i class="fa fa-arrow-right" style="margin: 5px;" aria-hidden="true"></i> -->
+    </div>
+
+    <div class="col-6">
+      <h6 style="margin: 5px;">{{reservation.checkout | date:' MMMM d y'}}</h6>
+    </div>
+
+
+  </div>
+  <div class="row">
+    <div class="colR col-8">
+      <h6> How many guests? </h6>
+    </div>
+
+    <div class="colL col-4">
+      <div class="quantity" *ngIf="!isConfirm">
+        <button class="btn minus1" (click)="reservation.adults=reservation.adults-1">-</button>
+        <input class="quantity" min="1" name="form-0-quantity" [(ngModel)]="reservation.adults" type="number">
+        <button class="btn add1" (click)="reservation.adults=reservation.adults+1">+</button>
+      </div>
+
+      <div *ngIf="isConfirm">
+        <h6>{{reservation.adults}} Guest</h6>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="colR col-8">
+      <h6> How many childrens? </h6>
+    </div>
+
+    <div class="colL col-4">
+      <div class="quantity" *ngIf="!isConfirm">
+        <button class="btn minus1" (click)="reservation.children=reservation.children-1">-</button>
+        <input class="quantity" min="0" name="form-0-quantity" [(ngModel)]="reservation.children" type="number">
+        <button class="btn add1" (click)="reservation.children=reservation.children+1">+</button>
+      </div>
+
+      <div *ngIf="isConfirm">
+        <h6>{{reservation.children}} Child</h6>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="row">
+
+    <div class="colR col-7">
+      <h6> do you have pets ? </h6>
+    </div>
+
+    <div class="colL col-5">
+      <div class="quantity3" *ngIf="!isConfirm">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" (click)="reservation.pets=false"
+            class="btn {{ reservation.pets === false ? 'btn-primary' : 'btn-secondary' }}">No</button>
+          <button type="button" (click)="reservation.pets=true"
+            class="btn {{ reservation.pets === true ? 'btn-primary' : 'btn-secondary' }}">Yes</button>
+        </div>
+
+        <!-- <button class="btn minus1" [class.active]="reservation.pets==false" (click)="reservation.pets=false"  type="button">No</button>
+        <button class="btn add1" [class.active]="reservation.pets==true" (click)="reservation.pets=true"  type="button">Yes</button> -->
+      </div>
+
+
+      <div *ngIf="isConfirm">
+        <h6>{{reservation.pets==true?'YES':'NO'}}</h6>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6> Your reservation cost </h6>
+    </div>
+    <div class="col">
+      <hr />
+      <!-- </div> -->
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col">
+      <h6> Stay duration : </h6>
+    </div>
+    <div class="col end">
+      <h6>{{reservationR.nights_count}} nights</h6>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6> Nights Cost : </h6>
+    </div>
+    <div class="col end">
+      <h6>{{reservationR.nights_cost | currency}} </h6>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col">
+      <h6> Discount : </h6>
+    </div>
+    <div class="col end">
+      <h6>{{reservationR.discount | currency}} </h6>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6> Cleaning Fees : </h6>
+    </div>
+    <div class="col end">
+      <h6>{{reservationR.cleaning_fee | currency}} </h6>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6> Total : </h6>
+    </div>
+    <div class="col end">
+      <h6>{{reservationR.total | currency}} </h6>
+    </div>
+  </div>
+
+</div>
