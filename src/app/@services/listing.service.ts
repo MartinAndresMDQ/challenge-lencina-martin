@@ -44,13 +44,7 @@ export class ListingService {
     getReservation(uuid:string): Observable<Reservation> {
         return this.httpClient.get<Reservation>(this.REST_API_SERVER + '/reservation').pipe(catchError(this.handleError));
     }
-
-    // // POST 
-    // // /api/listings/:uuid/confirm-reservation
-    // confirmReservation(reservation: ReservationConfirm): Observable<string> {
-    //     return this.httpClient.post<string>(this.REST_API_SERVER + '/reservationConfirm', reservation).pipe(catchError(this.handleError));
-    // }
-
+    
     handleError(error: HttpErrorResponse) {
         let errorMessage = 'Unknown error!';
         if (error.error instanceof ErrorEvent) {
